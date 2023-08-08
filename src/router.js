@@ -1,15 +1,43 @@
-import { Router as routerExpress } from "express";
+import { Router as routersExpress } from 'express';
+import { faker } from '@faker-js/faker';
 
-const router = routerExpress()
+const router = routersExpress();
 
-// Rota da minha home
-router.get("/", function (req, res) {
-  res.render("pages/index");
-})
+//Home
+router.get('/', function (req, res) {
+  
+  res.render('pages/home');
+});
 
-//rota da minh página sobre
-router.get("/sobre", function (req, res) {
-  res.render("pages/about");
-})
+//About
+router.get('/about', function (req, res) {
+  const users = [{
+    name: faker.internet.userName(),
+    email: faker.internet.email(),
+    avatar: faker.image.avatar()
+  }, {
+    name: faker.internet.userName(),
+    email: faker.internet.email(),
+    avatar: faker.image.avatar()
+  }, {
+    name: faker.internet.userName(),
+    email: faker.internet.email(),
+    avatar: faker.image.avatar()
+  }
+  ];
 
-export default router
+  res.render('pages/about', {
+    usuarios: users
+  });
+});
+
+//Contact
+router.get('/contact', (req, res) => {
+  res.render('pages/contact');
+});
+
+router.post('/contact', (req, res) => {
+  res.send('Obrigado por entrar em contato conosco, ' + req.body.name + '! Responderemos em breve!');
+});
+
+export default router;

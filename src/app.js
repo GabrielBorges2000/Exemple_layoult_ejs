@@ -1,18 +1,21 @@
 import express from 'express';
+import expressEjsLayouts from 'express-ejs-layouts';
+import bodyParser from 'body-parser';
+
 import router from './router.js';
 
 const app = express();
 
-//cinfiguração para rodar meus arquivos ejs
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
+app.use(expressEjsLayouts);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-//carregando arquivos estáticos, exemplo: css
-console.log('[ Loading files statics... ]')
-app.use(express.static('public'))
+// eslint-disable-next-line no-undef
+app.use(express.static('/public'));
 
-//Importação das minhas Rotas
-console.log('[ Loading routers... ]')
-app.use(router)
 
-export default app
+app.use(router);
+
+export default app;
 

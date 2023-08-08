@@ -1,8 +1,8 @@
-import app from "./src/app.js";
+import app from './src/app.js';
 
-const port = 3000
+// const port = process.env.PORT || 3000;  //=> Utilize essa const para produção 
+const port = 3000;
 
-console.log('[ Everything is OK! ]')
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`)
+  console.log(`Server running on http://localhost:${port}`);
 });

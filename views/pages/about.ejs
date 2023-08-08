@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<%- include('../components/head'); %>
-
-  <body class="container">
-    <%- include('../components/header', {pagina: 'Sobre' } ); %>
-      <main>
-        <div class="jumbotron">
-          <h1>Sobre mim</h1>
-          <p>Oi sou Gabriel, estudante de programação na RocketSeat!</p>
+<%- contentFor('body') %>
+  <div class="jumbotron text-center">
+    <h1>O Time!</h1>
+    <div class="row">
+      <% for (usuario of usuarios){%>
+        <div class="col-sm-4">
+          <h2>
+            <%= usuario.name %>
+          </h2>
+          <img class="img-responsive" style="height: 250px" src="<%= usuario.avatar %>">
         </div>
-      </main>
-      <%- include('../components/footer'); %>
-  </body>
-
-</html>
+        <% } %>
+    </div>
+  </div>
