@@ -5,25 +5,26 @@ const router = routersExpress();
 
 //Home
 router.get('/', function (req, res) {
-  
+
   res.render('pages/home');
 });
 
-//About
+// About
 router.get('/about', function (req, res) {
-  const users = [{
-    name: faker.internet.userName(),
-    email: faker.internet.email(),
-    avatar: faker.image.avatar()
-  }, {
-    name: faker.internet.userName(),
-    email: faker.internet.email(),
-    avatar: faker.image.avatar()
-  }, {
-    name: faker.internet.userName(),
-    email: faker.internet.email(),
-    avatar: faker.image.avatar()
-  }
+  const users = [
+    {
+      name: faker.internet.userName(),
+      email: faker.internet.email(),
+      avatar: faker.image.avatar()
+    }, {
+      name: faker.internet.userName(),
+      email: faker.internet.email(),
+      avatar: faker.image.avatar()
+    }, {
+      name: faker.internet.userName(),
+      email: faker.internet.email(),
+      avatar: faker.image.avatar()
+    }
   ];
 
   res.render('pages/about', {
